@@ -1,0 +1,70 @@
+*********************************************************************
+******************    select opponents code    **********************
+*********************************************************************
+
+
+
+from bs4 import BeautifulSoup
+
+
+def get_Opponents(html):
+    soup = BeautifulSoup(html, 'html.parser')
+    
+
+    tables = soup.select('table[class= "wikitable"]')
+    match = tables[0]
+    trs = match.select("tr")
+
+    opponents = []
+
+    for tr in trs:
+        opponent ={}
+        opponent_node = tr.select_one("td:nth-child(3)")
+      
+        if not opponent_node:
+            continue
+        
+        opponent_link = None
+        opponent_name = opponent_node.string
+        if opponent_name is None:
+            a = opponent_node.select_one("a")
+            opponent_link = f"https://en.wikipedia.org{a['href']}"
+            opponent_name = a.string
+            
+        opponent['Name'] = opponent_name.strip('\n')
+        opponent['Link'] = opponent_link
+        opponents.append(opponent)
+        
+    return opponents
+
+************************************************************************
+***********************    opponents code    ***************************
+************************************************************************
+
+
+from bs4 import BeautifulSoup
+
+
+def get_Opponents(html):
+    soup = BeautifulSoup(html, 'html.parser')
+    print (soup.title.string)
+
+    tables = soup.find_all('table',attrs={'class':'wikitable'})
+    matches = tables[1]
+    trs = matches.find_all('tr')
+
+    opponents = []
+
+    for tr in trs:
+        tds = tr.find_all('td')
+        if not tds:
+            continue
+        
+        opponent_node = tds[2]
+        opponents_name = opponent_node.string
+        if opponents_name is None:
+            opponents_name = (opponent_node.a.string)
+            
+        opponents.append(opponents_name.strip('\n'))   
+        
+    return opponents
