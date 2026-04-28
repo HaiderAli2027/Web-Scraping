@@ -1,6 +1,8 @@
 # Web Scraping Project
 
-A modular, multi-component web scraping architecture built in Python. This project demonstrates advanced web scraping techniques, project structuring, and the creation of Command Line Interfaces (CLI) and API wrappers around core data extraction logic.
+- A modular, multi-component web scraping architecture built in Python.
+-  This project demonstrates advanced web scraping techniques, project structuring
+-  - the creation of Command Line Interfaces (CLI) and API wrappers around core data extraction logic.
 
 ## Project Architecture
 
@@ -8,7 +10,7 @@ The project is thoughtfully divided into logical, decoupled components:
 
 1. **`scraping/` (Core Package)**: The heart of the project. It contains the actual web scraping logic.
    - **`Wiki/` Module**: A specialized Wikipedia scraper designed to extract complex data about MMA Fighters (such as their opponents, biographical data, and fight attributes like height/weight using Regex). It uses `BeautifulSoup` and `Parsel` (XPATH/CSS Selectors).
-   - **Dynamic Execution**: Contains `run.py`, `output.py`, and `importer.py` which allow executing specific scraper modules dynamically and handling data output.
+   - **Dynamic Execution**: Contains `run.py`, `output.py`, and `importer.py` which allow executing specific scraper modules dynamically & handling data output.
 2. **`scraping-cli/`**: A CLI wrapper that exposes the core scraping functionality to the terminal. It provides console scripts like `scrape-cli` to run scrapers and `scrape-import` to add new custom scrapers dynamically via text.
 3. **`scraping-api/`**: An API layer that exposes the scraping capabilities over HTTP.
 
