@@ -2,7 +2,7 @@
 
 - A modular, multi-component web scraping architecture built in Python.
 -  This project demonstrates advanced web scraping techniques, project structuring
--  - the creation of Command Line Interfaces (CLI) and API wrappers around core data extraction logic.
+-  The creation of Command Line Interfaces (CLI) and API wrappers around core data extraction logic.
 
 ## Project Architecture
 
